@@ -39,4 +39,9 @@ class User extends Authenticatable
      */
     protected $casts = [
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
