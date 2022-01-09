@@ -46,7 +46,7 @@
             <div class="mt-4">
                 <x-label class="text-white" for="duration" value="{{$post->duration}}" />
 
-                <x-input id="duration" class="block mt-1 w-full" type="number" name="duration" required  />
+                <x-input id="duration" class="block mt-1 w-full" type="number" value="{{$post->duration}}" name="duration" required  />
             </div>
 
             <!-- Post type -->
@@ -54,9 +54,9 @@
                 <x-label class="text-white" for="type" value="{{$post->type}}" />
 
                 <select class="block mt-1 w-full" name="type" id="type" required>
-                    <option value="cinema_news">Actualités cinéma</option>
-                    <option value="tv_series">Séries TV</option>
-                    <option value="animes">Animation</option>
+                    <option value="actu_cinéma">Actualités cinéma</option>
+                    <option value="series_tv">Séries TV</option>
+                    <option value="animation">Animation</option>
                 </select>
             </div>
 

@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title', 100);
             $table->string('summary', 500);
             $table->date('released_at');
-            $table->enum('type', ['cinema_news', 'tv_series', 'animes']);
+            $table->enum('type', ['actu_cinéma', 'serie_tv', 'animation']);
             $table->integer('duration');
             $table->string('picture', 400);
             $table->timestamps();

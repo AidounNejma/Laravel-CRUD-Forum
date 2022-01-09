@@ -49,9 +49,9 @@
                     <x-label class="text-white" for="type" :value="__('Type')" />
 
                     <select class="block mt-1 w-full" name="type" id="type" required>
-                        <option value="cinema_news">Actualités cinéma</option>
-                        <option value="tv_series">Séries TV</option>
-                        <option value="animes">Animation</option>
+                        <option value="actu_cinéma">Actualités cinéma</option>
+                        <option value="serie_tv">Séries TV</option>
+                        <option value="animation">Animation</option>
                     </select>
                 </div>
 
