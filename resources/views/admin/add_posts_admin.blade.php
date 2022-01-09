@@ -11,7 +11,9 @@
         <div class="overflow-hidden shadow-sm sm:rounded-lg">
             <!-- Validation Errors -->
             <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+            @if(session('status'))
+                <h6 class="alert alert-success">{{session('status')}}</h6>
+            @endif
             <form method="POST" action="{{route('submit.post')}}" enctype="multipart/form-data">
                 @csrf
 
@@ -59,7 +61,7 @@
                 <div class="mt-4">
                     <x-label class="text-white" for="picture" :value="__('Image')" />
 
-                    <x-input id="picture" class="block mt-1 w-full" type="text" name="picture" required  />
+                    <x-input id="picture" class="block mt-1 w-full bg-white" type="file" name="picture" required  />
                 </div>
 
                     <x-button type="submit" class="py-4"> Ajouter un post </x-button>

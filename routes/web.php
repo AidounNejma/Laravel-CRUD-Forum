@@ -32,7 +32,7 @@ Route::post('/ajouter-un-post', [PostController::class, 'addPosts'])->name('subm
 Route::get('/tous-les-posts', [PostController::class, 'show'])->name('show-posts');
 Route::get('/tous-les-posts/{id}', [PostController::class, 'showOnePost'])->name('show.one.post');
 
-Route::get('/modifier-un-post/{id}', [PostController::class, 'modifyPost'])->name('modify.one.post');
+Route::get('/modifier-un-post/{id}', [PostController::class, 'editPost'])->name('edit-one-post');
 Route::post('/modifier-un-post/{id}', [PostController::class, 'submitEdit'])->name('submit.edit');
 
 require __DIR__.'/auth.php';

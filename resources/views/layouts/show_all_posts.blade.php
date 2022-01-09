@@ -17,7 +17,7 @@
                         @foreach ($posts as $post)
                             <article class="postcard dark blue">
                                 <a class="postcard__img_link" href="{{ route('show.one.post', ['id' => $post->id]) }}">
-                                    <img class="postcard__img" src="{{$post->picture}}" alt="Image du film {{$post->title}} " />
+                                    <img class="postcard__img" src="{{asset('/pictures/'. $post->picture)}}" alt="Image du film {{$post->title}} " />
                                 </a>
                                 <div class="postcard__text">
                                     <h1 class="postcard__title blue"><a href="{{ route('show.one.post', ['id' => $post->id]) }}">{{$post->title}}</a></h1>
