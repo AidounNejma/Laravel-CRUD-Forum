@@ -15,6 +15,11 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <!-- SCRIPT FONT AWESOME POUR LES LOGOS -->
+        <script src="https://kit.fontawesome.com/14fbcf0019.js" crossorigin="anonymous"></script>
+
+        @stack('styles');
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

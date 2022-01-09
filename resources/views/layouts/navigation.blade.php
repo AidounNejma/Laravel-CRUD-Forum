@@ -13,8 +13,19 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Tableau de bord') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('show-posts')" :active="request()->routeIs('show-posts')">
+                        {{ __('Voir tous les posts') }}
+                    </x-nav-link>
+                    @if (Gate::allows('access-admin'))
+                    <x-nav-link :href="route('add-post')" :active="request()->routeIs('add-post')">
+                        {{ __('Ajouter un Post') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('add-post')" :active="request()->routeIs('add-post')">
+                        {{ __('Liste des membres') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -41,7 +52,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Déconnexion') }} <i class="fas fa-power-off"></i>
                             </x-dropdown-link>
                         </form>
                     </x-slot>
