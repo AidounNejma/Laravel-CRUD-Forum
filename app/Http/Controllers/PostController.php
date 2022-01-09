@@ -21,17 +21,21 @@ class PostController extends Controller
             'title' => ['required', 'string','min:1', 'max:70', 'unique:posts'],
             'summary' => ['required', 'string', 'max:500'],
             'released_at' => ['required', 'date'],
-            'picture' => ['required', 'string']
+            'picture' => ['required', 'string'],
+            'type' => ['required', 'string'],
+            'duration' => ['required', 'integer']
         ]);
 
         Post::create([
             'title' => $request->title,
             'summary' => $request->summary,
             'released_at' => $request->released_at,
-            'picture'=> $request->picture
+            'picture'=> $request->picture,
+            'type' => $request->type,
+            'duration' => $request->duration,
         ]);
 
-        return redirect('/dashboard-admin');
+        return redirect('/dashboard');
     }
 
     public function show(){
@@ -64,13 +68,17 @@ class PostController extends Controller
             'title' => ['required', 'string','min:1', 'max:70'],
             'summary' => ['required','string', 'max:500'],
             'released_at' => ['required', 'date'],
-            'picture' => ['required','string']
+            'picture' => ['required','string'],
+            'type' => ['required', 'string'],
+            'duration' => ['required', 'integer']
         ]);
             $update = Post::find($request->id);
             $update->title = $request->title;
             $update->summary = $request->summary;
             $update->released_at = $request->released_at;
             $update->picture = $request->picture;
+            $update->type = $request->type;
+            $update->duration = $request->duration;
             $update->save();
 
 

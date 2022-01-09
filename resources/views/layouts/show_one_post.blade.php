@@ -14,7 +14,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 border-b">
                     @if (Gate::allows('access-admin'))
-                        <a href="{{route('modify.one.post', $post->id)}}"><i class="far fa-edit"> Editer</i></a>
+                        <a href="{{route('modify.one.post', $post->id)}}" class="linkEdit"><i class="far fa-edit"></i> Editer</a>
                     @endif
                     <h1 class="text-center font-weight-bold text-xl text-white leading-tigh py-4">{{$post->title}}</h1>
                     <img src="{{$post->picture}}" alt="" class="mx-auto py-4">

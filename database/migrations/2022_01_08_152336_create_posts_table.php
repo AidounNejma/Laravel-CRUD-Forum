@@ -15,10 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('summary');
+            $table->string('title', 100);
+            $table->string('summary', 500);
             $table->date('released_at');
-            $table->string('picture');
+            $table->enum('type', ['cinema_news', 'tv_series', 'animes']);
+            $table->integer('duration');
+            $table->string('picture', 400);
             $table->timestamps();
         });
     }
