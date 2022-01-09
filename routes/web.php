@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,14 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard-admin', function () {
     return view('admin/home_admin');
 })->middleware(['auth'])->name('dashboard_admin');
+
+Route::get('/ajouter-un-post', [PostController::class, 'create'])->name('add-post');
+Route::post('/ajouter-un-post', [PostController::class, 'addPosts'])->name('submit.post');
+
+Route::get('/tous-les-posts', [PostController::class, 'show'])->name('show-posts');
+Route::get('/tous-les-posts/{id}', [PostController::class, 'showOnePost'])->name('show.one.post');
+
+Route::get('/modifier-un-post/{id}', [PostController::class, 'modifyPost'])->name('modify.one.post');
+Route::post('/modifier-un-post/{id}', [PostController::class, 'submitEdit'])->name('submit.edit');
 
 require __DIR__.'/auth.php';

@@ -9,8 +9,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Tu es bien connecté en tant qu'administrateur !
-                    <a href="{{ route('add-post') }}">Créer un nouveau post</a>
+                    <h1>{{$post->title}}</h1>
+                    <img src="{{$post->picture}}" alt="">
+                    <p>{{$post->summary}}</p>
+                    <p>{{$post->released_at}}</p>
+                    @if (Gate::allows('access-admin'))
+                        <a href="{{route('modify.one.post', $post->id)}}">Modifier</a>
+                        <a href="{{route('delete.one.post'), $post->id}}">Supprimer</a>
+                    @endif
                 </div>
             </div>
         </div>
