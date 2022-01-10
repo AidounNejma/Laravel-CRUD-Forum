@@ -13,7 +13,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-
+                    @if(session('status'))
+                        <h6 class="alert alert-success">{{session('status')}}</h6>
+                    @endif
                     <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
                         <div class="card p-4">
                             <div class=" image d-flex flex-column justify-content-center align-items-center">
@@ -22,15 +24,15 @@
                                 </button>
                                 <form method="POST" action="{{route('submit-edit-profile')}}" enctype="multipart/form-data">
                                     @csrf
-                                    <x-label for="pseudo" :value="__('Pseudo')" />
-                                    <x-input id="pseudo" type="text" name="pseudo" required class="name mt-3" value="{{Auth::user()->name}}" />
+                                    <x-label for="name" :value="__('Pseudo')" />
+                                    <x-input id="name" type="text" name="name" required class="name mt-3" value="{{Auth::user()->name}}" />
 
                                     <x-label for="email" :value="__('Email')" />
                                     <x-input id="email" type="text" name="email" required class="name mt-3" value="{{Auth::user()->email}}" />
 
                                     <div class="text mt-3">
                                         <x-label for="bio" :value="__('Biographie')" />
-                                        <textarea id="bio" name="bio" value="{{Auth::user()->bio}}"></textarea>
+                                        <textarea id="bio" name="bio" value="{{Auth::user()->bio}}">{{Auth::user()->bio}}</textarea>
                                     </div>
 
                                     <x-button type="submit" class="py-2"> Modifier le profil </x-button>

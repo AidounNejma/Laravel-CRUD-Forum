@@ -95,9 +95,9 @@ class UserController extends Controller
 
         /* Envoi du formulaire d'édition */
         public function submitEditProfile(Request $request){
-            echo('coucou');
+
             $request->validate([
-                'name' => ['required', 'string', 'max:50'],
+                'name' => ['required','string', 'max:50'],
                 'email' => ['required','string', 'max:500']
             ]);
 
@@ -108,9 +108,6 @@ class UserController extends Controller
 
             $update->update();
 
-            return view('layouts/edit_profile', [
-
-                ]);
-            //return redirect()->back()->with('status', 'Le profil a été modifié avec succès !');
+            return redirect()->back()->with('status', 'Le profil a été modifié avec succès !');
         }
 }

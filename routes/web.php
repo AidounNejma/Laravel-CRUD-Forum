@@ -62,4 +62,5 @@ Route::post('/supprimer-un-commentaire/{id}', [CommentController::class, 'destro
 Route::get('/editer-mon-profil/', [UserController::class, 'editProfile'])->name('edit-profile');
 Route::post('/editer-mon-profil/', [UserController::class, 'submitEditProfile'])->name('submit-edit-profile');
 
+
 require __DIR__.'/auth.php';
