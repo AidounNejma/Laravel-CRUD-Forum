@@ -25,6 +25,30 @@
                     <p class="text-center text-white mx-auto py-4" >{{$post->summary}}</p>
                     <p class="text-center text-white mx-auto py-4 font-semibold">Date de sortie : {{$post->released_at}}</p>
                 </div>
+                <div class="p-6 border-b">
+                    <h1 class="text-white text-center">Forum</h1>
+                    @if(session('status'))
+                        <h6 class="alert alert-success">{{session('status')}}</h6>
+                    @endif
+                    <form action="{{route('add-comment', $post->id)}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div>
+                            <x-label class="text-white" for="content" :value="__('Commentaire')" />
+                            <textarea id="content" class="block mt-1 w-full" type="text" name="content" value="" required autofocus /></textarea>
+                            <x-button type="submit" class="ml-4"> Envoyer le message </x-button>
+                        </div>
+                    </form>
+
+                    @foreach ($comments as $comment)
+                        <h4 class="text-white">{{$pseudo[$comment->user_id]}}</h4>
+                        <p class="text-white">{{$comment->content}}</p>
+                        <p class="text-white">{{$comment->created_at->format('d-m-Y à h:i')}}</p>
+                        <form action="{{route('destroy.comment', $comment->id)}}" method="post">
+                            @csrf
+                            <button type="submit" class="tableLinks delete"><i class='fas fa-trash-alt'></i></button>
+                        </form>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

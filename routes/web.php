@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,7 @@ Route::get('/tous-les-posts/{id}', [PostController::class, 'showOnePost'])->name
 /* -------------------------------------------------------------- */
 
 Route::get('/liste-des-utilisateurs', [UserController::class, 'displayUsersAdmin'])->name('all-users');
+Route::post('/liste-des-utilisateurs/{id}', [UserController::class, 'destroyUser'])->name('destroy.user');
 
 
 Route::get('/ajouter-un-utlisateur', [UserController::class, 'create'])->name('add-user');
@@ -50,6 +52,11 @@ Route::post('/ajouter-un-utlisateur', [UserController::class, 'addUser'])->name(
 
 Route::get('/modifier-un-utilisateur/{id}', [UserController::class, 'editUser'])->name('edit-one-user');
 Route::post('/modifier-un-utilisateur/{id}', [UserController::class, 'submitEdit'])->name('submit.edit.user');
+
+/* -------------------------------------------------------------- */
+
+Route::post('/tous-les-posts/{id}', [CommentController::class, 'addComment'])->name('add-comment');
+Route::post('/supprimer-un-commentaire/{id}', [CommentController::class, 'destroyComment'])->name('destroy.comment');
 
 
 require __DIR__.'/auth.php';

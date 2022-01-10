@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 
@@ -22,9 +24,23 @@ class PostController extends Controller
     /* Afficher qu'un seul post */
     public function showOnePost($id){
         $post = Post::findOrFail($id);
+        $comments = Comment::all();
+
+        $results = DB::table('users')
+            ->join('comments', 'users.id', '=', 'comments.user_id')
+            ->select('users.id', 'users.name')
+            ->get();
+
+        $pseudo = [];
+
+        foreach($results as $result){
+            $pseudo[$result->id] = $result->name;
+        }
 
         return view('layouts/show_one_post', [
-            'post' => $post
+            'post' => $post,
+            'comments'=> $comments,
+            'pseudo'=>$pseudo
         ]);
     }
 

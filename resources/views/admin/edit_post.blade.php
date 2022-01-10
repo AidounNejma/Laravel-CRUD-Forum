@@ -56,9 +56,9 @@
                         <x-label for="type" :value="__('Type')" />
 
                         <select class="block mt-1 w-full" name="type" id="type" required>
-                            <option value="actu_cinéma">Actualités cinéma</option>
-                            <option value="series_tv">Séries TV</option>
-                            <option value="animation">Animation</option>
+                            <option value="actu_cinéma" {{ $post->type == 'actu_cinéma' ? 'selected' : '' }}>Actualités cinéma</option>
+                            <option value="series_tv" {{ $post->type == 'series_tv' ? 'selected' : '' }}>Séries TV</option>
+                            <option value="animation" {{ $post->type == 'animation' ? 'selected' : '' }}>Animation</option>
                         </select>
                     </div>
 

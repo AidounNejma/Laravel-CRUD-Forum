@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -27,20 +28,20 @@ class UserController extends Controller
 
         /* Validation des inputs */
         $request->validate([
-            'name' => ['required', 'string','min:1', 'max:70', 'unique:posts'],
+            'name' => ['required', 'string','min:1', 'max:70', 'unique:users'],
             'email' => ['required', 'string', 'max:500'],
             'password' => ['required', 'string'],
-            'admin' => ['required', 'string']
+            'admin' => [ 'string']
         ]);
 
             /* Création d'un nouvel objet */
-            $post= new User();
-            $post->name =  $request->input('name');
-            $post->email = $request->input('email');
-            $post->password = $request->input('password');
-            $post->admin = $request->input('admin');
+            $user= new User();
+            $user->name =  $request->input('name');
+            $user->email = $request->input('email');
+            $user->password = Hash::make($request->input('password'));
+            $user->admin = $request->input('admin');
 
-            $post->save();
+            $user->save();
 
         return redirect()->back()->with('status', 'L\'utilisateur a été créé avec succès !');
     }
@@ -61,17 +62,25 @@ class UserController extends Controller
         $request->validate([
             'name' => ['required', 'string','min:1', 'max:70'],
             'email' => ['required','string', 'max:500'],
-            'password' => ['required', 'date'],
-            'admin' => ['required', 'string']
+            'password' => ['required'],
+            'admin' => ['required']
         ]);
             $update = User::find($id);
             $update->name =  $request->input('name');
             $update->email = $request->input('email');
-            $update->password = $request->input('password');
+            $update->password = Hash::make($request->input('password'));
             $update->admin = $request->input('admin');
 
             $update->update();
             return redirect()->back()->with('status', 'L\'utilisateur a été modifié avec succès !');
 
+        }
+
+        /* Supprimer un utilisateur */
+        public function destroyUser($id){
+            $user= User::find($id);
+
+            $user->delete();
+            return redirect()->back()->with('status', 'L\'utilisateur a été supprimé avec succès !');
         }
 }

@@ -42,9 +42,14 @@
                     <div class="mt-4">
                         <x-label class="text-white" for="admin" value="{{$user->admin}}" />
 
-                        <select class="block mt-1 w-full" name="type" id="type" required>
-                            <option value="0">Utilisateur</option>
+                        <select class="block mt-1 w-full" name="admin" id="admin" required>
+                            @if($user->admin== 0)
+                            <option value="0" selected>Utilisateur</option>
                             <option value="1">Admin</option>
+                            @else
+                            <option value="0">Utilisateur</option>
+                            <option value="1" selected>Admin</option>
+                            @endif
                         </select>
                     </div>
 

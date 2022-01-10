@@ -44,7 +44,7 @@
                     <div class="mt-4">
                         <x-label class="text-white" for="admin" :value="__('Statut')" />
 
-                        <select class="block mt-1 w-full" name="type" id="type" required>
+                        <select class="block mt-1 w-full" name="admin" id="admin" required>
                             <option value="0">Utilisateur</option>
                             <option value="1">Admin</option>
                         </select>
