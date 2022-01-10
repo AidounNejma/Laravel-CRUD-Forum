@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,8 @@ Route::get('/tous-les-posts/{id}', [PostController::class, 'showOnePost'])->name
 
 Route::get('/modifier-un-post/{id}', [PostController::class, 'editPost'])->name('edit-one-post');
 Route::post('/modifier-un-post/{id}', [PostController::class, 'submitEdit'])->name('submit.edit');
+
+Route::get('/liste-des-posts', [PostController::class, 'viewPostsAdmin'])->name('all-posts');
+Route::get('/liste-des-utilisateurs', [UserController::class, 'displayUsersAdmin'])->name('all-users');
 
 require __DIR__.'/auth.php';

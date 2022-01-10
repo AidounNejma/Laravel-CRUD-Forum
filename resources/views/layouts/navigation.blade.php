@@ -16,14 +16,14 @@
                         {{ __('Tableau de bord') }}
                     </x-nav-link>
                     <x-nav-link :href="route('show-posts')" :active="request()->routeIs('show-posts')">
-                        {{ __('Voir tous les posts') }}
+                        {{ __('Accueil') }}
                     </x-nav-link>
                     @if (Gate::allows('access-admin'))
-                    <x-nav-link :href="route('add-post')" :active="request()->routeIs('add-post')">
-                        {{ __('Ajouter un Post') }}
+                    <x-nav-link :href="route('all-posts')" :active="request()->routeIs('all-posts')">
+                        {{ __('Gestion des posts') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('add-post')" :active="request()->routeIs('add-post')">
-                        {{ __('Liste des membres') }}
+                    <x-nav-link :href="route('all-users')" :active="request()->routeIs('all-users')">
+                        {{ __('Gestion des membres') }}
                     </x-nav-link>
                     @endif
                 </div>

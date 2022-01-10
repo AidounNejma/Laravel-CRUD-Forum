@@ -1,0 +1,31 @@
+.tableLinks{
+    color: honeydew;
+    text-decoration: none;
+}
+
+.edit:hover{
+    color: #af751d;
+    transition: 0.5s;
+}
+
+.delete:hover{
+    color: #851b1b;
+    transition: 0.5s;
+}
+
+.see:hover{
+    color: #2760ac;
+    transition: 0.5s;
+}
+
+.add{
+    background-color: #1f2937;
+    border-radius: 5px;
+    float: right;
+    padding: 1%;
+}
+
+.add:hover{
+    color: #478b28;
+    transition: 0.5s;
+}

@@ -117,4 +117,12 @@ class PostController extends Controller
 
 
     }
+
+    public function viewPostsAdmin(){
+        $posts = Post::all();
+
+        return view('admin/posts_view_admin', [
+            'posts'=> $posts
+        ]);
+    }
 }
