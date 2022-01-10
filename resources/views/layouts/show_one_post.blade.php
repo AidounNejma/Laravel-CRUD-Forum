@@ -35,18 +35,22 @@
                         <div>
                             <x-label class="text-white" for="content" :value="__('Commentaire')" />
                             <textarea id="content" class="block mt-1 w-full" type="text" name="content" value="" required autofocus /></textarea>
-                            <x-button type="submit" class="ml-4"> Envoyer le message </x-button>
+                            <x-button type="submit"> Envoyer le message </x-button>
                         </div>
                     </form>
 
                     @foreach ($comments as $comment)
-                        <h4 class="text-white">{{$pseudo[$comment->user_id]}}</h4>
-                        <p class="text-white">{{$comment->content}}</p>
-                        <p class="text-white">{{$comment->created_at->format('d-m-Y à h:i')}}</p>
-                        <form action="{{route('destroy.comment', $comment->id)}}" method="post">
-                            @csrf
-                            <button type="submit" class="tableLinks delete"><i class='fas fa-trash-alt'></i></button>
-                        </form>
+                        <div class="comment">
+                            <div class="comment-header">
+                                <h4 class="text-white">{{$pseudo[$comment->user_id]}}</h4>
+                                <p class="text-white">{{$comment->created_at->format('d-m-Y à h:i')}}</p>
+                            </div>
+
+                            <p class="text-white">{{$comment->content}}</p>
+                            <div class="comment-actions">
+                                <a href="{{route('destroy.comment', $comment->id)}}" class="tableLinks delete"><i class='fas fa-trash-alt'></i></a>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>

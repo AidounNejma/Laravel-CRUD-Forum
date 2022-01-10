@@ -29,3 +29,31 @@
     font-size: 50px;
     text-transform: uppercase;
 }
+
+
+form button {
+    margin-top:10px;
+    margin-bottom: 20px;
+    background-color:black !important;
+    font-weight: bold !important;
+}
+
+.comment {
+    background-color: #212529;
+    margin-bottom:20px;
+    padding:10px 20px;
+    border-radius:15px;
+}
+
+.comment-header {
+    display:flex;
+    justify-content:space-between;
+}
+
+.comment-actions {
+    text-align: right;
+}
+
+.comment p {
+    margin-bottom:0;
+}
