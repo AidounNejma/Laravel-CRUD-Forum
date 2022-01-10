@@ -100,9 +100,9 @@ class UserController extends Controller
         public function submitEditProfile(Request $request){
 
             $request->validate([
-                'name' => ['required','string', 'max:50'],
-                'email' => ['required','string', 'max:500'],
-                'bio' => ['string', 'max:600']
+                'name' => ['string', 'max:50'],
+                'email' => ['string', 'max:500'],
+                'password' => ['string', 'max:800']
             ]);
 
             $update = User::find(Auth::user()->id);

@@ -25,13 +25,13 @@
                                 <form method="POST" action="{{route('submit-edit-profile')}}" enctype="multipart/form-data">
                                     @csrf
                                     <x-label for="name" :value="__('Pseudo')" />
-                                    <x-input id="name" type="text" name="name" required class="name mt-3" value="{{Auth::user()->name}}" />
+                                    <x-input id="name" type="text" name="name" class="name mt-3" value="{{Auth::user()->name}}" />
 
                                     <x-label for="email" :value="__('Email')" />
-                                    <x-input id="email" type="text" name="email" required class="name mt-3" value="{{Auth::user()->email}}" />
+                                    <x-input id="email" type="text" name="email" class="name mt-3" value="{{Auth::user()->email}}" />
 
                                     <x-label for="password" :value="__('Mot de passe')" />
-                                    <x-input id="password" type="password" name="password" required class="name mt-3" value="{{Auth::user()->password}}" />
+                                    <x-input id="password" type="password" name="password" class="name mt-3" value="{{Auth::user()->password}}" />
 
                                     <div class="text mt-3">
                                         <x-label for="bio" :value="__('Biographie')" />
