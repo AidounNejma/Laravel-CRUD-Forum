@@ -28,7 +28,8 @@
                     </div>
                     <div class="par">
                         <p>
-                            Cupiditate alias odio omnis minima veritatis saepe porro, repellendus natus vitae, sequi exercitationem ipsam, qui possimus sit eveniet laborum sapiente quisquam quae neque velit?
+                            Bienvenue sur votre forum! <br>
+                            Participez aux forums Films, partagez avec des milliers de passionnés, chaque jour, vos questions, vos rêves, vos expériences, vos demandes d'informations ou vos impressions grâce à ForumN.
                         </p>
                     </div>
                     <div class="btns">

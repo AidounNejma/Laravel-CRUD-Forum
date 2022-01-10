@@ -57,7 +57,7 @@ Route::post('/modifier-un-utilisateur/{id}', [UserController::class, 'submitEdit
 /* -------------------------------------------------------------- */
 
 Route::post('/tous-les-posts/{id}', [CommentController::class, 'addComment'])->name('add-comment');
-Route::post('/supprimer-un-commentaire/{id}', [CommentController::class, 'destroyComment'])->name('destroy.comment');
+Route::get('/supprimer-un-commentaire/{id}', [CommentController::class, 'destroyComment'])->name('destroy.comment');
 
 /* -------------------------------------------------------------- */
 Route::get('/editer-mon-profil/', [UserController::class, 'editProfile'])->name('edit-profile');

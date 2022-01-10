@@ -22,7 +22,7 @@
                     </div>
                     <h1 class="text-center font-weight-bold text-xl text-white leading-tigh py-4" id="title">{{$post->title}}</h1>
                     <img src="{{asset('/pictures/'. $post->picture)}}" alt="" class="mx-auto py-4" width="500px">
-                    <p class="text-center text-white mx-auto py-4" >{{$post->summary}}</p>
+                    <p class="text-center text-white mx-auto py-4" >Résumé : {{$post->summary}}</p>
                     <p class="text-center text-white mx-auto py-4 font-semibold">Date de sortie : {{$post->released_at}}</p>
                 </div>
                 <div class="p-6 border-b">
@@ -47,9 +47,11 @@
                             </div>
 
                             <p class="text-white">{{$comment->content}}</p>
+                            @if(Gate::allows('access-admin'))
                             <div class="comment-actions">
                                 <a href="{{route('destroy.comment', $comment->id)}}" class="tableLinks delete"><i class='fas fa-trash-alt'></i></a>
                             </div>
+                            @endif
                         </div>
                     @endforeach
                 </div>
