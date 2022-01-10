@@ -14,13 +14,10 @@
   border-color: #e5e7eb; /* 2 */
 }
 
-::before,
-::after {
-  --tw-content: '';
+/* Ajout code */
+.myNav{
+    background-color: #00000033 !important;
 }
-
-/* Ajout CSS */
-
 .py-12{
     background: #110f16;
 }
@@ -28,6 +25,17 @@
     padding: 1.5rem;
     background-color: #2e2e36;
 }
+
+.bgLoginRegister{
+    background-color: #000000 !important;
+}
+/* Fin ajout code */
+
+::before,
+::after {
+  --tw-content: '';
+}
+
 
 /*
 1. Use a consistent sensible line-height in all browsers.
