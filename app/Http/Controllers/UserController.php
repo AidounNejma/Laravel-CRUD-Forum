@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -82,5 +83,34 @@ class UserController extends Controller
 
             $user->delete();
             return redirect()->back()->with('status', 'L\'utilisateur a été supprimé avec succès !');
+        }
+
+        /* Edition du profil */
+        public function editProfile(){
+
+            return view('layouts/edit_profile', [
+
+            ]);
+        }
+
+        /* Envoi du formulaire d'édition */
+        public function submitEditProfile(Request $request){
+            echo('coucou');
+            $request->validate([
+                'name' => ['required', 'string', 'max:50'],
+                'email' => ['required','string', 'max:500']
+            ]);
+
+            $update = User::find(Auth::user()->id);
+            $update->name = $request->input('name');
+            $update->email = $request->input('email');
+            $update->bio = $request->input('bio');
+
+            $update->update();
+
+            return view('layouts/edit_profile', [
+
+                ]);
+            //return redirect()->back()->with('status', 'Le profil a été modifié avec succès !');
         }
 }

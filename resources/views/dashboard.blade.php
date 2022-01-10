@@ -34,13 +34,11 @@
                                 </div>
 
                                 <div class=" d-flex mt-2">
-                                    <button class="btn1 btn-dark">Editer mon Profil</button>
+                                    <a href="{{route('edit-profile')}}" class="btn1 btn-dark">Editer mon Profil</a>
                                 </div>
 
                                 <div class="text mt-3">
-                                    <span>Ma petite bio, bla bla bla bla bla
-                                        <br><br> Je fais aussi bla bla bla bla bla.
-                                    </span>
+                                    <span>{{Auth::user()->bio}}</span>
                                 </div>
 
                                 <div class=" px-2 rounded mt-4 date ">
