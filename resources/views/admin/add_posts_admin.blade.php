@@ -2,7 +2,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Ajouter un article') }}
+            {{ __('Ajouter un post') }}
         </h2>
 </x-slot>
 

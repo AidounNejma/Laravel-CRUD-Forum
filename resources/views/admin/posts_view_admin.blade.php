@@ -21,9 +21,10 @@
                             <tr>
                                 <th scope="col">Identifiant</th>
                                 <th scope="col">Titre</th>
-                                <th scope="col">Date de création</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Type</th>
+                                <th scope="col">Créé le</th>
+                                <th scope="col">Dernière modification</th>
                                 <th scope="col">Voir</th>
                                 <th scope="col">Éditer</th>
                                 <th scope="col">Supprimer</th>
@@ -34,9 +35,10 @@
                             <tr>
                                 <th scope="row">{{$post->id}}</th>
                                 <td>{{$post->title}}</td>
-                                <td>{{$post->created_at}}</td>
                                 <td><img src="{{asset('/pictures/'. $post->picture)}}" alt="" width="50px"></td>
                                 <td>{{$post->type}}</td>
+                                <td>{{$post->created_at->format('d-m-Y H:i:s')}}</td>
+                                <td>{{$post->updated_at->format('d-m-Y H:i:s')}}</td>
                                 <td><a class="tableLinks see" href="{{ route('show.one.post', ['id' => $post->id]) }}"><i class="fas fa-eye"></i></a></td>
                                 <td><a href="{{route('edit-one-post', $post->id)}}" class="tableLinks edit"><i class="far fa-edit"></i></a></td>
                                 <td><a href="" class="tableLinks delete"><i class="fas fa-trash-alt"></i></a></td>

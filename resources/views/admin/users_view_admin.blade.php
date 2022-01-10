@@ -14,7 +14,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 border-b">
-                    <a class="tableLinks add" class="mb-4" href="{{route('add-post')}}"> <i class="fas fa-plus-circle"></i> Ajouter un utilisateur</a>
+                    <a class="tableLinks add" class="mb-4" href="{{route('add-user')}}"> <i class="fas fa-plus-circle"></i> Ajouter un utilisateur</a>
                 @if ($users->count() > 0)
                     <table class="table table-hover table-dark">
                         <thead>
@@ -36,11 +36,11 @@
                                 <th scope="row">{{$user->id}}</th>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->created_at}}</td>
-                                <td>{{$user->updated_at}}</td>
+                                <td>{{$user->created_at->format('d-m-Y H:i:s')}}</td>
+                                <td>{{$user->updated_at->format('d-m-Y H:i:s')}}</td>
                                 <td>{{$user->admin}}</td>
                                 <td><a class="tableLinks see" href=""><i class="fas fa-eye"></i></a></td>
-                                <td><a href="" class="tableLinks edit"><i class="far fa-edit"></i></a></td>
+                                <td><a href="{{ route('edit-one-user', ['id' => $user->id]) }}" class="tableLinks edit"><i class="far fa-edit"></i></a></td>
                                 <td><a href="" class="tableLinks delete"><i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                             @endforeach
