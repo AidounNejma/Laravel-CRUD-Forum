@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\File;
+
 
 class PostController extends Controller
 {
@@ -77,6 +77,7 @@ class PostController extends Controller
         ]);
     }
 
+    /* Envoi du formulaire au clic du btn submit */
     public function submitEdit(Request $request, $id){
 
         $request->validate([
@@ -118,11 +119,22 @@ class PostController extends Controller
 
     }
 
+    /* Voir tous les posts dans le tableau administrateur */
     public function viewPostsAdmin(){
         $posts = Post::all();
 
         return view('admin/posts_view_admin', [
             'posts'=> $posts
         ]);
+    }
+
+    public function destroyPost($id){
+        $post= Post::find($id);
+        $destination = 'pictures/'.$post->picture;
+        if(File::exists($destination)){
+            File::delete($destination);
+        }
+        $post->delete();
+        return redirect()->back()->with('status', 'L\'article a été supprimé avec succès !');
     }
 }

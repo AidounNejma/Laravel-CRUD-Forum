@@ -15,7 +15,10 @@
         <div class="overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 border-b">
                     <a class="tableLinks add" class="mb-4" href="{{route('add-post')}}"> <i class="fas fa-plus-circle"></i> Ajouter un post</a>
-                @if ($posts->count() > 0)
+                    @if(session('status'))
+                        <h6 class="alert alert-success">{{session('status')}}</h6>
+                    @endif
+                    @if ($posts->count() > 0)
                     <table class="table table-hover table-dark">
                         <thead>
                             <tr>
@@ -41,7 +44,13 @@
                                 <td>{{$post->updated_at->format('d-m-Y H:i:s')}}</td>
                                 <td><a class="tableLinks see" href="{{ route('show.one.post', ['id' => $post->id]) }}"><i class="fas fa-eye"></i></a></td>
                                 <td><a href="{{route('edit-one-post', $post->id)}}" class="tableLinks edit"><i class="far fa-edit"></i></a></td>
-                                <td><a href="" class="tableLinks delete"><i class="fas fa-trash-alt"></i></a></td>
+
+                                <td>
+                                    <form action="{{route('destroy.post', $post->id)}}" method="post">
+                                        @csrf
+                                        <button type="submit" class="tableLinks delete"><i class='fas fa-trash-alt'></i></button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

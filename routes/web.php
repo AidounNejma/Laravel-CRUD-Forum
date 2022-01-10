@@ -28,6 +28,7 @@ Route::get('/dashboard', function () {
 /* -------------------------------------------------------------- */
 
 Route::get('/liste-des-posts', [PostController::class, 'viewPostsAdmin'])->name('all-posts');
+Route::post('/liste-des-posts/{id}', [PostController::class, 'destroyPost'])->name('destroy.post');
 
 Route::get('/ajouter-un-post', [PostController::class, 'create'])->name('add-post');
 Route::post('/ajouter-un-post', [PostController::class, 'addPosts'])->name('submit.post');
@@ -37,6 +38,7 @@ Route::post('/modifier-un-post/{id}', [PostController::class, 'submitEdit'])->na
 
 Route::get('/tous-les-posts', [PostController::class, 'show'])->name('show-posts');
 Route::get('/tous-les-posts/{id}', [PostController::class, 'showOnePost'])->name('show.one.post');
+
 
 /* -------------------------------------------------------------- */
 

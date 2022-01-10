@@ -25,7 +25,7 @@
                         <div class="card p-4">
                             <div class=" image d-flex flex-column justify-content-center align-items-center">
                                 <button class="btn btn-secondary" id="btn">
-                                    <img src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" height="250" width="250" />
+                                    <img src="img/user.png" height="250" width="250" />
                                 </button> <span class="name mt-3">{{Auth::user()->name}}</span>
                                 <span class="idd">{{Auth::user()->email}}</span>
 
