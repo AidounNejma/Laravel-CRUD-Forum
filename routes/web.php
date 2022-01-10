@@ -26,6 +26,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
 /* -------------------------------------------------------------- */
 
 Route::get('/liste-des-posts', [PostController::class, 'viewPostsAdmin'])->name('all-posts');

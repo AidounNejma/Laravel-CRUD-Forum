@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
     public function displayUsersAdmin(){
         $users = User::all();
 
@@ -98,12 +101,14 @@ class UserController extends Controller
 
             $request->validate([
                 'name' => ['required','string', 'max:50'],
-                'email' => ['required','string', 'max:500']
+                'email' => ['required','string', 'max:500'],
+                'bio' => ['string', 'max:600']
             ]);
 
             $update = User::find(Auth::user()->id);
             $update->name = $request->input('name');
             $update->email = $request->input('email');
+            $update->password = Hash::make($request->input('password'));
             $update->bio = $request->input('bio');
 
             $update->update();

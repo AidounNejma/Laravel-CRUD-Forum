@@ -14,11 +14,13 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 border-b">
-                    <a class="tableLinks add" class="mb-4" href="{{route('add-user')}}"> <i class="fas fa-plus-circle"></i> Ajouter un utilisateur</a>
-                    @if(session('status'))
-                        <h6 class="alert alert-success">{{session('status')}}</h6>
-                    @endif
-                    @if ($users->count() > 0)
+                <br>
+                <a class="tableLinks add" class="mb-4" href="{{route('add-user')}}"> <i class="fas fa-plus-circle"></i> Ajouter un utilisateur</a>
+                @if(session('status'))
+                    <h6 class="alert alert-success">{{session('status')}}</h6>
+                @endif
+                <br><br><br><br>
+                @if ($users->count() > 0)
                     <table class="table table-hover table-dark">
                         <thead>
                             <tr>
@@ -28,7 +30,6 @@
                                 <th scope="col">Créé le</th>
                                 <th scope="col">Dernière modification</th>
                                 <th scope="col">Statut</th>
-                                <th scope="col">Voir</th>
                                 <th scope="col">Éditer</th>
                                 <th scope="col">Supprimer</th>
                             </tr>
@@ -41,8 +42,9 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->created_at->format('d-m-Y H:i:s')}}</td>
                                 <td>{{$user->updated_at->format('d-m-Y H:i:s')}}</td>
-                                <td>{{$user->admin}}</td>
-                                <td><a class="tableLinks see" href=""><i class="fas fa-eye"></i></a></td>
+                                <td>{{ $user->admin == '0' ? 'utilisateur' : '' }}
+                                    {{ $user->admin == '1' ? 'admin' : '' }}
+                                </td>
                                 <td><a href="{{ route('edit-one-user', ['id' => $user->id]) }}" class="tableLinks edit"><i class="far fa-edit"></i></a></td>
                                 <td>
                                     <form action="{{route('destroy.user', $user->id)}}" method="post">
@@ -54,8 +56,11 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <br><br><br><br>
                     @else
-                    <h1 class="text-center">Aucun utilisateur trouvé.</h1>
+                        <br><br><br><br><br>
+                        <h1 class="text-center">Aucun utilisateur trouvé.</h1>
+                        <br><br><br><br><br>
                 @endif
             </div>
         </div>

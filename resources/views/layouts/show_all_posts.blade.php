@@ -39,7 +39,9 @@
                             </article>
                         @endforeach
                     @else
-                    <h1>Aucun post trouvé</h1>
+                    <br><br><br><br><br><br><br>
+                    <h1 class="text-center text-white">Aucun post trouvé.</h1>
+                    <br><br><br><br><br><br><br>
                     @endif
                 </div>
             </div>

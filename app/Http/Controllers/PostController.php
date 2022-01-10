@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
 class PostController extends Controller
 {
 
-     /* Afficher tous les articles */
+    /* Afficher tous les articles */
     public function show(){
         $posts = Post::all();
 

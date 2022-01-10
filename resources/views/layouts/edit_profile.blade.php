@@ -30,6 +30,9 @@
                                     <x-label for="email" :value="__('Email')" />
                                     <x-input id="email" type="text" name="email" required class="name mt-3" value="{{Auth::user()->email}}" />
 
+                                    <x-label for="password" :value="__('Mot de passe')" />
+                                    <x-input id="password" type="password" name="password" required class="name mt-3" value="{{Auth::user()->password}}" />
+
                                     <div class="text mt-3">
                                         <x-label for="bio" :value="__('Biographie')" />
                                         <textarea id="bio" name="bio" value="{{Auth::user()->bio}}">{{Auth::user()->bio}}</textarea>

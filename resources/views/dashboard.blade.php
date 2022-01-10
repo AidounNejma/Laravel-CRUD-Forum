@@ -30,11 +30,11 @@
                                 <span class="idd">{{Auth::user()->email}}</span>
 
                                 <div class="d-flex flex-row justify-content-center align-items-center mt-3">
-                                    <span class="number">1069 <span class="follow">posts commentés</span></span>
+                                    <span class="number">0 <span class="follow">posts commentés</span></span>
                                 </div>
 
                                 <div class=" d-flex mt-2">
-                                    <a href="{{route('edit-profile')}}" class="btn1 btn-dark">Editer mon Profil</a>
+                                    <a href="{{route('edit-profile')}}" class="btn btn-dark">Editer mon Profil</a>
                                 </div>
 
                                 <div class="text mt-3">
