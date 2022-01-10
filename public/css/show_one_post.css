@@ -1,13 +1,31 @@
-
 .linkEdit{
     color: honeydew;
     float: right;
+    text-decoration: none;
+}
+
+.linkEdit:hover{
+    color: #af751d;
+    transition: 0.5s;
 }
 
 .linkReturn{
     font-size: 15px !important;
+    text-decoration: none;
+    color: #1f2937;
+}
+
+.linkReturn:hover{
+    color: #6d2020;
+    transition: 0.5s;
 }
 
 .createdAt{
     color: honeydew;
+    font-weight: bold;
+}
+
+#title{
+    font-size: 50px;
+    text-transform: uppercase;
 }

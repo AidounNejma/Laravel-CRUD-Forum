@@ -77,3 +77,12 @@ hr .new1 {
 .date {
     background-color: #ccc
 }
+
+.p-6 {
+    padding: 1.5rem;
+    background-color: #2e2e36 !important;
+}
+
+.welcome{
+    color: white !important;
+}

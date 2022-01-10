@@ -15,14 +15,14 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 border-b">
                     <div class="d-flex justify-content-between">
-                        <p class="createdAt">Publié le {{$post->created_at->format('j-m-Y')}}</p>
+                        <p class="createdAt">Publié le {{$post->created_at->format('d-m-Y à H:i:s')}}</p>
                         @if (Gate::allows('access-admin'))
                             <a href="{{route('edit-one-post', $post->id)}}" class="linkEdit"><i class="far fa-edit"></i> Editer</a>
                         @endif
                     </div>
-                    <h1 class="text-center font-weight-bold text-xl text-white leading-tigh py-4">{{$post->title}}</h1>
-                    <img src="{{asset('/pictures/'. $post->picture)}}" alt="" class="mx-auto py-4">
-                    <p class="text-center text-white mx-auto py-4">{{$post->summary}}</p>
+                    <h1 class="text-center font-weight-bold text-xl text-white leading-tigh py-4" id="title">{{$post->title}}</h1>
+                    <img src="{{asset('/pictures/'. $post->picture)}}" alt="" class="mx-auto py-4" width="500px">
+                    <p class="text-center text-white mx-auto py-4" >{{$post->summary}}</p>
                     <p class="text-center text-white mx-auto py-4 font-semibold">Date de sortie : {{$post->released_at}}</p>
                 </div>
             </div>

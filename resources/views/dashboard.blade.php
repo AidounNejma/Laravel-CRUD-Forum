@@ -15,13 +15,11 @@
                 <div class="p-6 bg-white border-b border-gray-200">
 
                     @if(Gate::allows('access-admin'))
-                    <h1 class="text-center" style="color:red;">Vue administrateur</h1>
-                    {{-- <p>{{$user->name}}</p> --}}
+                        <h1 class="text-center" style="color:red;">Vue administrateur</h1>
+                        <h4 class="text-center welcome">Bienvenue, {{Auth::user()->name}} !</h4>
                     @else
-                    <h1 class="text-center">Vue utilisateur</h1>
+                        <h2 class="text-center welcome">Bienvenue, {{Auth::user()->name}} !</h2>
                     @endif
-                    <h4 class="text-center">Bienvenue, {{Auth::user()->name}} !</h4>
-                    <p></p>
 
                     <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
                         <div class="card p-4">
@@ -36,7 +34,7 @@
                                 </div>
 
                                 <div class=" d-flex mt-2">
-                                    <button class="btn1 btn-dark">Edit Profile</button>
+                                    <button class="btn1 btn-dark">Editer mon Profil</button>
                                 </div>
 
                                 <div class="text mt-3">
@@ -46,7 +44,7 @@
                                 </div>
 
                                 <div class=" px-2 rounded mt-4 date ">
-                                    <span class="join">Inscrit(e) depuis le : {{Auth::user()->created_at->format('j F, Y')}}</span>
+                                    <span class="join">Inscrit(e) depuis le : {{Auth::user()->created_at->format('d.m.Y')}}</span>
                                 </div>
                             </div>
                         </div>
