@@ -15,8 +15,8 @@
 }
 
 /* Ajout code */
-.myNav{
-    background-color: #00000033 !important;
+#myNav{
+    background-color: #1a1e21 !important;
 }
 .py-12{
     background: #110f16;
