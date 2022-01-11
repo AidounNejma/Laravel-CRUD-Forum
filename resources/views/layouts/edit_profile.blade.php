@@ -25,23 +25,27 @@
                                 </button>
                                 <form method="POST" action="{{route('submit-edit-profile')}}" enctype="multipart/form-data">
                                     @csrf
-                                    <x-label for="name" :value="__('Pseudo')" />
-                                    <x-input id="name" type="text" name="name" class="name mt-3" value="{{Auth::user()->name}}" />
-
-                                    <x-label for="email" :value="__('Email')" />
-                                    <x-input id="email" type="text" name="email" class="name mt-3" value="{{Auth::user()->email}}" />
-
-                                    <x-label for="password" :value="__('Mot de passe')" />
-                                    <x-input id="password" type="password" name="password" class="name mt-3" value="{{Auth::user()->password}}" />
+                                    <div class="text mt-3">
+                                        <x-label for="name" :value="__('Pseudo')" />
+                                        <x-input id="name" type="text" name="name" class="name mt-3" value="{{Auth::user()->name}}" />
+                                    </div>
+                                    <div class="text mt-3">
+                                        <x-label for="email" :value="__('Email')" />
+                                        <x-input id="email" type="text" name="email" class="name mt-3" value="{{Auth::user()->email}}" />
+                                    </div>
+                                    <div class="text mt-3">
+                                        <x-label for="password" :value="__('Mot de passe')" />
+                                        <x-input id="password" type="password" name="password" class="name mt-3" value="{{Auth::user()->password}}" />
+                                    </div>
 
                                     <div class="text mt-3">
                                         <x-label for="bio" :value="__('Biographie')" />
-                                        <textarea id="bio" name="bio" value="{{Auth::user()->bio}}">{{Auth::user()->bio}}</textarea>
+                                        <textarea class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 name mt-3" id="bio" name="bio" value="{{Auth::user()->bio}}">{{Auth::user()->bio}}</textarea>
                                     </div>
-
-                                    <x-button type="submit" class="py-2"> Modifier le profil </x-button>
-
-                                    <div class=" px-2 rounded mt-4 date ">
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <x-button type="submit" class="py-2"> Modifier le profil </x-button>
+                                    </div>
+                                    <div class=" px-2 rounded mt-4 date text-center">
                                         <span class="join">Inscrit(e) depuis le : {{Auth::user()->created_at->format('d.m.Y')}}</span>
                                     </div>
                                 </form>
