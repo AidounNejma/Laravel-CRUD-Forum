@@ -28,39 +28,40 @@ Route::get('/dashboard', function () {
 
 
 /* -------------------------------------------------------------- */
+/* Routes pour la gestion des posts */
+Route::get('/liste-des-posts', [PostController::class, 'viewPostsAdmin'])->middleware('admin')->name('all-posts');
+Route::post('/liste-des-posts/{id}', [PostController::class, 'destroyPost'])->middleware('admin')->name('destroy.post');
 
-Route::get('/liste-des-posts', [PostController::class, 'viewPostsAdmin'])->name('all-posts');
-Route::post('/liste-des-posts/{id}', [PostController::class, 'destroyPost'])->name('destroy.post');
+Route::get('/ajouter-un-post', [PostController::class, 'create'])->middleware('admin')->name('add-post');
+Route::post('/ajouter-un-post', [PostController::class, 'addPosts'])->middleware('admin')->name('submit.post');
 
-Route::get('/ajouter-un-post', [PostController::class, 'create'])->name('add-post');
-Route::post('/ajouter-un-post', [PostController::class, 'addPosts'])->name('submit.post');
+Route::get('/modifier-un-post/{id}', [PostController::class, 'editPost'])->middleware('admin')->name('edit-one-post');
+Route::post('/modifier-un-post/{id}', [PostController::class, 'submitEdit'])->middleware('admin')->name('submit.edit');
 
-Route::get('/modifier-un-post/{id}', [PostController::class, 'editPost'])->name('edit-one-post');
-Route::post('/modifier-un-post/{id}', [PostController::class, 'submitEdit'])->name('submit.edit');
-
-Route::get('/tous-les-posts', [PostController::class, 'show'])->name('show-posts');
-Route::get('/tous-les-posts/{id}', [PostController::class, 'showOnePost'])->name('show.one.post');
+Route::get('/tous-les-posts', [PostController::class, 'show'])->middleware(['auth'])->name('show-posts');
+Route::get('/tous-les-posts/{id}', [PostController::class, 'showOnePost'])->middleware(['auth'])->name('show.one.post');
 
 
 /* -------------------------------------------------------------- */
+/* Routes pour la gestion des utilisateurs */
+Route::get('/liste-des-utilisateurs', [UserController::class, 'displayUsersAdmin'])->middleware('admin')->name('all-users');
+Route::post('/liste-des-utilisateurs/{id}', [UserController::class, 'destroyUser'])->middleware('admin')->name('destroy.user');
 
-Route::get('/liste-des-utilisateurs', [UserController::class, 'displayUsersAdmin'])->name('all-users');
-Route::post('/liste-des-utilisateurs/{id}', [UserController::class, 'destroyUser'])->name('destroy.user');
 
+Route::get('/ajouter-un-utlisateur', [UserController::class, 'create'])->middleware('admin')->name('add-user');
+Route::post('/ajouter-un-utlisateur', [UserController::class, 'addUser'])->middleware('admin')->name('submit.user');
 
-Route::get('/ajouter-un-utlisateur', [UserController::class, 'create'])->name('add-user');
-Route::post('/ajouter-un-utlisateur', [UserController::class, 'addUser'])->name('submit.user');
-
-Route::get('/modifier-un-utilisateur/{id}', [UserController::class, 'editUser'])->name('edit-one-user');
-Route::post('/modifier-un-utilisateur/{id}', [UserController::class, 'submitEdit'])->name('submit.edit.user');
-
-/* -------------------------------------------------------------- */
-
-Route::post('/tous-les-posts/{id}', [CommentController::class, 'addComment'])->name('add-comment');
-Route::get('/supprimer-un-commentaire/{id}', [CommentController::class, 'destroyComment'])->name('destroy.comment');
+Route::get('/modifier-un-utilisateur/{id}', [UserController::class, 'editUser'])->middleware('admin')->name('edit-one-user');
+Route::post('/modifier-un-utilisateur/{id}', [UserController::class, 'submitEdit'])->middleware('admin')->name('submit.edit.user');
 
 /* -------------------------------------------------------------- */
-Route::get('/editer-mon-profil/', [UserController::class, 'editProfile'])->name('edit-profile');
+/* Routes pour commenter */
+Route::post('/tous-les-posts/{id}', [CommentController::class, 'addComment'])->middleware(['auth'])->name('add-comment');
+Route::get('/supprimer-un-commentaire/{id}', [CommentController::class, 'destroyComment'])->middleware('admin')->name('destroy.comment');
+
+/* -------------------------------------------------------------- */
+/* Routes pour la l'édition du profil */
+Route::get('/editer-mon-profil/', [UserController::class, 'editProfile'])->middleware(['auth'])->name('edit-profile');
 Route::post('/editer-mon-profil/', [UserController::class, 'submitEditProfile'])->name('submit-edit-profile');
 
 

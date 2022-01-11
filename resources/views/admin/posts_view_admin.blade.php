@@ -1,5 +1,5 @@
 @push('styles')
-    <link href="{{ asset('css/posts_view_admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/posts_view_admin.css') }}" rel="stylesheet">
 @endpush
 
 <x-app-layout>
@@ -19,6 +19,7 @@
                         <h6 class="alert alert-success">{{session('status')}}</h6>
                     @endif
                     @if ($posts->count() > 0)
+                    <br><br><br><br>
                     <table class="table table-hover table-dark">
                         <thead>
                             <tr>
@@ -55,6 +56,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <br><br>
                     @else
                         <br><br><br><br><br><br><br>
                         <h1 class="text-center text-white">Aucun post trouvé.</h1>
