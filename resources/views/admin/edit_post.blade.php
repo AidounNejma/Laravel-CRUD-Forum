@@ -1,6 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            <a href="{{route('all-posts')}}" class="linkReturn"><i class="fas fa-chevron-left"></i></a>
             {{ __('Modifier un article') }}
         </h2>
     </x-slot>

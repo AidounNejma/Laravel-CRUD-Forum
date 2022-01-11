@@ -23,11 +23,11 @@
                                     <h1 class="postcard__title blue"><a href="{{ route('show.one.post', ['id' => $post->id]) }}">{{$post->title}}</a></h1>
                                     <div class="postcard__subtitle small">
                                         <time datetime="{{$post->created_at}}">
-                                            <i class="fas fa-calendar-alt mr-2"></i>{{$post->created_at->format('j-m-Y')}}
+                                            <i class="fas fa-calendar-alt mr-2"></i>Posté le : {{$post->created_at->format('j-m-Y')}}
                                         </time>
                                     </div>
                                     <div class="postcard__bar"></div>
-                                    <div class="postcard__preview-txt">{{$post->summary}}</div>
+                                    <div class="postcard__preview-txt">Résumé : <br> {{$post->summary}}</div>
                                     <ul class="postcard__tagbox">
                                         <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{$post->type}}</li>
                                         <li class="tag__item"><i class="fas fa-clock mr-2"></i>{{$post->duration}} minutes</li>

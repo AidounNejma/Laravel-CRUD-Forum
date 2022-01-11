@@ -14,16 +14,35 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 border-b">
-                    <div class="d-flex justify-content-between">
-                        <p class="createdAt">Publié le {{$post->created_at->format('d-m-Y à H:i:s')}}</p>
-                        @if (Gate::allows('access-admin'))
+                    @if (Gate::allows('access-admin'))
+                    <div class="py-2 d-flex flex-row-reverse">
                             <a href="{{route('edit-one-post', $post->id)}}" class="linkEdit"><i class="far fa-edit"></i> Editer</a>
-                        @endif
                     </div>
-                    <h1 class="text-center font-weight-bold text-xl text-white leading-tigh py-4" id="title">{{$post->title}}</h1>
-                    <img src="{{asset('/pictures/'. $post->picture)}}" alt="" class="mx-auto py-4" width="500px">
-                    <p class="text-center text-white mx-auto py-4" >Résumé : {{$post->summary}}</p>
-                    <p class="text-center text-white mx-auto py-4 font-semibold">Date de sortie : {{$post->released_at}}</p>
+                    @endif
+
+                    <article class="postcard dark blue">
+                        <div class="postcard__text">
+                            <div class="postcard__subtitle small">
+                                <time datetime="{{$post->created_at}}">
+                                    <i class="fas fa-calendar-alt mr-2"></i>Publié le : {{$post->created_at->format('d-m-Y à H:i:s')}}
+                                </time>
+                            </div>
+                            <div class="postcard__bar"></div>
+                        </div>
+                        <h1 class="text-center font-weight-bold text-xl text-white leading-tigh py-4" id="title">{{$post->title}}</h1>
+                        <a class="postcard__img_link" href="#">
+                            <img class="postcard__img" src="{{asset('/pictures/'. $post->picture)}}" alt="Image du film {{$post->title}} " />
+                        </a>
+                        <div class="postcard__text">
+                            <div class="postcard__preview-txt">{{$post->summary}}</div>
+                            <ul class="postcard__tagbox">
+                                <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{$post->type}}</li>
+                                <li class="tag__item"><i class="fas fa-clock mr-2"></i>{{$post->duration}} minutes</li>
+                                <li class="tag__item"><i class="fas fa-clock mr-2"></i>Date de sortie : {{$post->released_at}}</li>
+                            </ul>
+                        </div>
+                    </article>
+
                 </div>
                 <div class="p-6 border-b">
                     <h1 class="text-white text-center">Forum</h1>
@@ -43,7 +62,7 @@
                         <div class="comment">
                             <div class="comment-header">
                                 <h4 class="text-white">{{$pseudo[$comment->user_id]}}</h4>
-                                <p class="text-white">{{$comment->created_at->format('d-m-Y à h:i')}}</p>
+                                <p class="text-white">{{$comment->created_at->format('d-m-Y à H:i')}}</p>
                             </div>
 
                             <p class="text-white">{{$comment->content}}</p>

@@ -5,6 +5,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
+            <a href="{{route('dashboard')}}" class="linkReturn"><i class="fas fa-chevron-left"></i></a>
             {{ __('Editer le profil') }}
         </h2>
     </x-slot>
