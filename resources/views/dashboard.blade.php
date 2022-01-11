@@ -13,6 +13,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    @if(session('errors'))
+                        <h6 class="alert alert-danger">{{session('errors')}}</h6>
+                    @endif
 
                     @if(Gate::allows('access-admin'))
                         <h1 class="text-center" style="color:red;">Vue administrateur</h1>
@@ -38,7 +41,11 @@
                                 </div>
 
                                 <div class="text mt-3">
+                                    @if(Auth::user()->bio == '')
+                                    <h6>La biographie est vide :'(</h6>
+                                    @else
                                     <span>{{Auth::user()->bio}}</span>
+                                    @endif
                                 </div>
 
                                 <div class=" px-2 rounded mt-4 date ">

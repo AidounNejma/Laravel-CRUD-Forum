@@ -20,6 +20,6 @@ class Admin
         if ($user && $user->admin == 1) {
             return $next($request);
         }
-        return redirect()->route('dashboard')->with('error', 'Vous n\'avez pas un accès administrateur');
+        return redirect()->route('dashboard')->with('errors', 'Vous n\'avez pas un accès administrateur');
     }
 }
