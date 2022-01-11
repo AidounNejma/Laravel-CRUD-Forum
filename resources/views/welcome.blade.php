@@ -51,7 +51,7 @@
             </div>
             <div class="container_outer_img">
                 <div class="img-inner">
-                    <img src='https://logos-world.net/wp-content/uploads/2020/04/Netflix-Symbol.png'  alt="" class="container_img"/>
+                    <img src='/img/logo.png'  alt="" class="container_img"/>
                 </div>
             </div>
         </div>
