@@ -20,7 +20,7 @@
                     </div>
                     @endif
 
-                    <article class="postcard dark blue">
+                    <article class="postcard dark red">
                         <div class="postcard__text">
                             <div class="postcard__subtitle small">
                                 <time datetime="{{$post->created_at}}">
@@ -59,7 +59,7 @@
                     </form>
 
                     @foreach ($comments as $comment)
-                        <div class="comment">
+                        <div class="comment postcard dark red">
                             <div class="comment-header">
                                 <h4 class="text-white">{{$pseudo[$comment->user_id]}}</h4>
                                 <p class="text-white">{{$comment->created_at->format('d-m-Y à H:i')}}</p>
@@ -68,7 +68,7 @@
                             <p class="text-white">{{$comment->content}}</p>
                             @if(Gate::allows('access-admin'))
                             <div class="comment-actions">
-                                <a href="{{route('destroy.comment', $comment->id)}}" class="tableLinks delete"><i class='fas fa-trash-alt'></i></a>
+                                <a href="{{route('destroy.comment', $comment->id)}}" class="delete"><i class='fas fa-trash-alt'></i></a>
                             </div>
                             @endif
                         </div>

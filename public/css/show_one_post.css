@@ -21,6 +21,7 @@
 
 .delete{
     color: #fff;
+    position: relative;
 }
 
 .delete:hover{
@@ -28,12 +29,32 @@
     transition: 0.5s;
 }
 
+.block{
+    border-radius: 10px;
+}
+
+textarea {
+    resize: none;
+    border: 3px solid black !important;
+}
+
+textarea:focus{
+    background-color: #eeecec;
+}
 
 form button {
     margin-top:10px;
     margin-bottom: 20px;
     background-color:black !important;
     font-weight: bold !important;
+    border: 2px solid white !important;
+}
+
+form button:hover{
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid black !important;
+    transition: 0.5s;
 }
 
 .comment {

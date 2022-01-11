@@ -15,12 +15,12 @@
                 <div class="p-6 border-b">
                     @if ($posts->count() > 0)
                         @foreach ($posts as $post)
-                            <article class="postcard dark blue">
+                            <article class="postcard dark red">
                                 <a class="postcard__img_link" href="{{ route('show.one.post', ['id' => $post->id]) }}">
                                     <img class="postcard__img" src="{{asset('/pictures/'. $post->picture)}}" alt="Image du film {{$post->title}} " />
                                 </a>
                                 <div class="postcard__text">
-                                    <h1 class="postcard__title blue"><a href="{{ route('show.one.post', ['id' => $post->id]) }}">{{$post->title}}</a></h1>
+                                    <h1 class="postcard__title red"><a href="{{ route('show.one.post', ['id' => $post->id]) }}">{{$post->title}}</a></h1>
                                     <div class="postcard__subtitle small">
                                         <time datetime="{{$post->created_at}}">
                                             <i class="fas fa-calendar-alt mr-2"></i>Posté le : {{$post->created_at->format('j-m-Y')}}
@@ -31,7 +31,7 @@
                                     <ul class="postcard__tagbox">
                                         <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{$post->type}}</li>
                                         <li class="tag__item"><i class="fas fa-clock mr-2"></i>{{$post->duration}} minutes</li>
-                                        <li class="tag__item play blue">
+                                        <li class="tag__item play red">
                                             <a href="{{ route('show.one.post', ['id' => $post->id]) }}"><i class="fas fa-play mr-2"></i>Voir les discussions</a>
                                         </li>
                                     </ul>
