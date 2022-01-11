@@ -35,8 +35,9 @@
                     <div class="btns">
                         @if (Route::has('login'))
                         @auth
-                                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Tableau de bord</a>
+                                <a href="{{ url('/dashboard') }}" class='btns_more'>Tableau de bord</a>
                         @else
+
                             <div class="twoLinks">
                                 <a href="{{ route('login') }}" class='btns_more'> Se connecter </a>
                                 @if (Route::has('register'))
